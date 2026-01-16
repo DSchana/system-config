@@ -8,7 +8,7 @@
 
   outputs = { self, determinate, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      dschana-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           determinate.nixosModules.default
