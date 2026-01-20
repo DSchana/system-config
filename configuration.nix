@@ -57,6 +57,7 @@
     vscodium
     git
     nix-output-monitor
+    android-tools
   ];
 
   # Enable the unfree 1Password packages
