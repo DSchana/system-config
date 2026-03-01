@@ -58,6 +58,7 @@
     git
     nix-output-monitor
     android-tools
+    claude-code
   ];
 
   # Enable the unfree 1Password packages
