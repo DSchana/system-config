@@ -9,7 +9,10 @@
   home.file = {
     ".oh-my-zsh".source = "${pkgs.oh-my-zsh}/share/oh-my-zsh";
     ".zshrc".source = ./zshrc;
-    ".config/starship.toml".source = ./starship.toml;
+    ".config" = {
+      source = ./config;
+      recursive = true;
+    };
   };
 
   programs.home-manager.enable = true;

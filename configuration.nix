@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, jj-starship, ... }:
 
 {
   imports = [
@@ -47,19 +47,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    wget
-    btop
-    brave
-    signal-desktop
-    vscodium
-    git
-    jujutsu
-    nix-output-monitor
     android-tools
+    brave
+    btop
     claude-code
+    git
+    jj-starship
+    jujutsu
+    neovim
+    nix-output-monitor
+    signal-desktop
     starship
+    tmux
+    vim
+    vscodium
+    wget
   ];
 
   # Enable the unfree 1Password packages

@@ -2,9 +2,7 @@ format = """
 $username\
 $hostname\
 $directory\
-$git_branch\
-$git_state\
-$git_status\
+${custom.jj}\
 $cmd_duration\
 $status\
 $line_break\
@@ -20,9 +18,19 @@ ssh_symbol = ""
 read_only = " ro"
 style = "blue"
 
+[custom.jj]
+when = "jj-starship detect"
+shell = ["jj-starship"]
+format = "$output "
+
+[git_branch]
+disabled = true
+
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+disabled = true
+
+[git_status]
+disabled = true
 
 [cmd_duration]
 format = "[$duration]($style) "
@@ -36,19 +44,6 @@ disabled = false
 [character]
 success_symbol = "[>](bold purple)"
 error_symbol = "[>](bold red)"
-
-[git_commit]
-tag_symbol = " tag "
-
-[git_status]
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
-deleted = "x"
-
-[git_branch]
-symbol = "git "
 
 [python]
 symbol = "py "

@@ -9,12 +9,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";  # Use the same nixpkgs
     };
+
+    jj-starship = {
+      url = "github:dmmulroy/jj-starship";
+      inputs.nixpkgs.follows = "nixpkgs";  # Use the same nixpkgs
+    };
   };
 
-  outputs = { self, determinate, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, determinate, nixpkgs, home-manager, jj-starship, ... }@inputs: {
     nixosConfigurations = {
       dschana-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {
+          jj-starship = jj-starship.packages.x86_64-linux.default;
+        };
         modules = [
           determinate.nixosModules.default
           home-manager.nixosModules.home-manager
