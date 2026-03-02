@@ -55,6 +55,7 @@
     signal-desktop
     vscodium
     git
+    jujutsu
     nix-output-monitor
     android-tools
     claude-code
@@ -69,26 +70,7 @@
   # Alternatively, you could also just allow all unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs = {
-    zsh = {
-      enable = true;
-      autosuggestions.enable = true;
-      zsh-autoenv.enable = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-        theme = "robbyrussell";
-        plugins = [
-          "git"
-          "npm"
-          "history"
-          "node"
-          "rust"
-          "deno"
-        ];
-      };
-    };
-  };
+  programs.zsh.enable = true;
 
   programs._1password.enable = true;
   programs._1password-gui = {
