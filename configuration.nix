@@ -43,9 +43,8 @@
   users.users.dschana = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
-
-  programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
@@ -59,6 +58,7 @@
     nix-output-monitor
     android-tools
     claude-code
+    starship
   ];
 
   # Enable the unfree 1Password packages
@@ -69,12 +69,41 @@
   # Alternatively, you could also just allow all unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs = {
+    zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+      zsh-autoenv.enable = true;
+      syntaxHighlighting.enable = true;
+      ohMyZsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [
+          "git"
+          "npm"
+          "history"
+          "node"
+          "rust"
+          "deno"
+        ];
+      };
+    };
+  };
+
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
     # Certain features, including CLI integration and system authentication support,
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
     polkitPolicyOwners = [ "dschana" ];
+  };
+
+  programs.firefox.enable = true;
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.dschana = import ./dschana/home.nix;
   };
 
   system.stateVersion = "25.11";
