@@ -9,6 +9,7 @@
   home.file = {
     ".oh-my-zsh".source = "${pkgs.oh-my-zsh}/share/oh-my-zsh";
     ".zshrc".source = ./zshrc;
+    ".tmux.conf".source = ./tmux.conf;
     ".config" = {
       source = ./config;
       recursive = true;
