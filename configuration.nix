@@ -62,6 +62,7 @@
     vim
     vscodium
     wget
+    wl-clipboard
   ];
 
   # Enable the unfree 1Password packages
