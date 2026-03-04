@@ -16,7 +16,13 @@
     };
   };
 
-  outputs = { self, determinate, nixpkgs, home-manager, jj-starship, ... }@inputs: {
+  outputs = { self, determinate, nixpkgs, home-manager, jj-starship, ... }@inputs:
+  let
+    mkHome = system: modules: home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [ ./shared/home.nix ] ++ modules;
+    };
+  in {
     nixosConfigurations = {
       dschana-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -30,6 +36,11 @@
           ./machines/laptop/configuration.nix
         ];
       };
+    };
+
+    homeConfigurations = {
+      "dschana@x86" = mkHome "x86_64-linux" [ ./machines/laptop/home.nix ];
+      "dschana@mac" = mkHome "aarch64-darwin" [ ./machines/mac/home.nix ];
     };
   };
 }
