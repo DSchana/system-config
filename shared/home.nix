@@ -6,6 +6,18 @@
 
   home.stateVersion = "25.11";
 
+  home.packages = with pkgs; [
+    btop
+    claude-code
+    git
+    jujutsu
+    neovim
+    starship
+    tmux
+    vim
+    wget
+  ];
+
 
   ### zsh ###
   programs.zsh = {

@@ -39,20 +39,11 @@
   environment.systemPackages = with pkgs; [
     android-tools
     brave
-    btop
-    claude-code
-    git
     jj-starship
-    jujutsu
-    neovim
     nix-output-monitor
     signal-desktop
-    starship
     tailscale
-    tmux
-    vim
     vscodium
-    wget
     wl-clipboard
   ];
 

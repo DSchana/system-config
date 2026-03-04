@@ -40,7 +40,7 @@
 
     homeConfigurations = {
       "dschana@x86" = mkHome "x86_64-linux" [ ./machines/a1502-laptop/home.nix ];
-      "dschana@mac" = mkHome "aarch64-darwin" [ ./machines/mac/home.nix ];
+      "anz-macbook" = mkHome "aarch64-darwin" [ ./machines/anz-macbook/home.nix ];
     };
   };
 }
