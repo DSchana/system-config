@@ -16,11 +16,6 @@
 
   time.timeZone = "America/New_York";
 
-  # Keep GNOME and GDM
-  #services.xserver.enable = true;
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
   # Add COSMIC desktop
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
@@ -39,7 +34,7 @@
     pulse.enable = true;
   };
 
-  # Your user
+  # dschana
   users.users.dschana = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
@@ -65,12 +60,6 @@
     wl-clipboard
   ];
 
-  # Enable the unfree 1Password packages
-  #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  #  "1password-gui"
-  #  "1password"
-  #];
-  # Alternatively, you could also just allow all unfree packages
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;

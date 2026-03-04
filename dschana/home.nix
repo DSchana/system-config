@@ -16,7 +16,6 @@
       enable = true;
       theme = "robbyrussell";
       plugins = [
-        "ssh-agent"
         "git"
       ];
     };
@@ -26,6 +25,7 @@
     };
 
     sessionVariables = {
+      SSH_AUTH_SOCK = "$HOME/.1password/agent.sock";
       DISABLE_AUTO_TITLE = "true";
       CASE_SENSITIVE = "true";
       DISABLE_TELEMETRY = "true";
