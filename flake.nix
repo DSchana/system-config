@@ -24,7 +24,7 @@
     };
   in {
     nixosConfigurations = {
-      a1502-laptop = nixpkgs.lib.nixosSystem {
+      dschana-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           jj-starship = jj-starship.packages.x86_64-linux.default;
@@ -33,13 +33,13 @@
           determinate.nixosModules.default
           home-manager.nixosModules.home-manager
           ./shared/configuration.nix
-          ./machines/a1502-laptop/configuration.nix
+          ./machines/dschana-laptop/configuration.nix
         ];
       };
     };
 
     homeConfigurations = {
-      "dschana@x86" = mkHome "x86_64-linux" [ ./machines/a1502-laptop/home.nix ];
+      "dschana-laptop" = mkHome "x86_64-linux" [ ./machines/dschana-laptop/home.nix ];
       "anz-macbook" = mkHome "aarch64-darwin" [ ./machines/anz-macbook/home.nix ];
     };
   };

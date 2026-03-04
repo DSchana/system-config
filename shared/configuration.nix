@@ -39,9 +39,14 @@
   environment.systemPackages = with pkgs; [
     android-tools
     brave
+    hunspell
+    hunspellDicts.en-ca-large
     jj-starship
+    libreoffice
     nix-output-monitor
+    obsidian
     signal-desktop
+    syncthing
     tailscale
     vscodium
     wl-clipboard
@@ -49,7 +54,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh.enable = true;
+
+  ### programs ###
 
   programs._1password.enable = true;
   programs._1password-gui = {
@@ -57,9 +63,19 @@
     polkitPolicyOwners = [ "dschana" ];
   };
 
+  programs.firefox.enable = true;
+
+  programs.zsh.enable = true;
+
+
+  ### services ###
+
   services.tailscale.enable = true;
 
-  programs.firefox.enable = true;
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+  };
 
   home-manager = {
     useGlobalPkgs = true;
