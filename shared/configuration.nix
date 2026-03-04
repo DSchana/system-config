@@ -66,7 +66,7 @@
     polkitPolicyOwners = [ "dschana" ];
   };
 
-  programs.tailscale.enable = true;
+  services.tailscale.enable = true;
 
   programs.firefox.enable = true;
 
