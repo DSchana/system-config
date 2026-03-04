@@ -26,7 +26,8 @@
         modules = [
           determinate.nixosModules.default
           home-manager.nixosModules.home-manager
-          ./configuration.nix
+          ./shared/configuration.nix
+          ./machines/laptop/configuration.nix
         ];
       };
     };

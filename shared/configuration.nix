@@ -1,17 +1,12 @@
 { config, lib, pkgs, jj-starship, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/New_York";
@@ -68,8 +63,6 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
     polkitPolicyOwners = [ "dschana" ];
   };
 
@@ -80,9 +73,5 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.dschana = import ./dschana/home.nix;
   };
-
-  system.stateVersion = "25.11";
 }
-
