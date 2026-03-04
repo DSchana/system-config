@@ -25,7 +25,6 @@
     };
 
     sessionVariables = {
-      SSH_AUTH_SOCK = "$HOME/.1password/agent.sock";
       DISABLE_AUTO_TITLE = "true";
       CASE_SENSITIVE = "true";
       DISABLE_TELEMETRY = "true";
@@ -41,6 +40,25 @@
       export PATH="$PATH:/usr/local/go/bin"
     '';
 
+  };
+
+
+  ### ssh config ###
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      IdentityAgent ~/.1password/agent.sock
+    '';
+    matchBlocks = {
+      "home-server.dschana.tailscale" = {
+        hostname = "100.124.96.21";
+        user = "dschana";
+      };
+      "home-server.dschana.local" = {
+        hostname = "192.168.2.12";
+        user = "dschana";
+      };
+    };
   };
 
 
