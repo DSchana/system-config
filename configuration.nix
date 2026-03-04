@@ -53,6 +53,7 @@
     nix-output-monitor
     signal-desktop
     starship
+    tailscale
     tmux
     vim
     vscodium
@@ -71,6 +72,8 @@
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
     polkitPolicyOwners = [ "dschana" ];
   };
+
+  programs.tailscale.enable = true;
 
   programs.firefox.enable = true;
 
