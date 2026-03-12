@@ -39,8 +39,8 @@
     };
 
     homeConfigurations = {
-      "dschana-x86_64-linux" = mkHome "x86_64-linux" [ ./machines/dschana-laptop/home.nix ];
-      "anz-aarch64-darwin" = mkHome "aarch64-darwin" [ ./machines/anz-macbook/home.nix ];
+      "dschana-laptop" = mkHome "x86_64-linux" [ ./machines/dschana-laptop/home.nix ];
+      "anz-macbook" = mkHome "aarch64-darwin" [ ./machines/anz-macbook/home.nix ];
     };
   };
 }
