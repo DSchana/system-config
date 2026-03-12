@@ -18,6 +18,7 @@
     wget
   ];
 
+  nixpkgs.config.allowUnfree = true;
 
   ### zsh ###
   programs.zsh = {
