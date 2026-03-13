@@ -39,8 +39,15 @@
     };
 
     homeConfigurations = {
+      # machine-specific (hame a hom.nix with overrides)
       "dschana-laptop" = mkHome "x86_64-linux" [ ./machines/dschana-laptop/home.nix ];
       "anz-macbook" = mkHome "aarch64-darwin" [ ./machines/anz-macbook/home.nix ];
+
+      # generic (just shared/home.nix, no machine-specific overrides)
+      "x86-linux" = mkHome "x86_64-linux" [];
+      "arm-linux" = mkHome "aarch64-linux" [];
+      "x86-darwin" = mkHome "x86_64-darwin" [];
+      "arm-darwin" = mkHome "aarch64-darwin" [];
     };
   };
 }
