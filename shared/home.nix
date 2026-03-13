@@ -12,6 +12,8 @@
     git
     jujutsu
     neovim
+    pgcli
+    postgresql
     starship
     tmux
     vim
