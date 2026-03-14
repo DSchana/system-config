@@ -1,7 +1,16 @@
-{ config, lib, pkgs, jj-starship, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  jj-starship,
+  ...
+}:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -32,7 +41,10 @@
   # dschana
   users.users.dschana = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -54,7 +66,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-
   ### programs ###
 
   programs._1password.enable = true;
@@ -66,7 +77,6 @@
   programs.firefox.enable = true;
 
   programs.zsh.enable = true;
-
 
   ### services ###
 

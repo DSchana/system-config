@@ -8,13 +8,24 @@
 
   home.packages = with pkgs; [
     btop
+    cargo
     claude-code
+    clippy
     gh
     git
+    go
+    gopls
+    golangci-lint
     jujutsu
     neovim
     pgcli
     postgresql
+    protobuf
+    protoc-gen-go
+    protoc-gen-go-grpc
+    rustc
+    rustfmt
+    rust-analyzer
     starship
     tmux
     vim
@@ -58,7 +69,6 @@
 
   };
 
-
   ### ssh config ###
   programs.ssh = {
     enable = true;
@@ -66,7 +76,6 @@
       IdentityAgent ~/.1password/agent.sock
     '';
   };
-
 
   ### starship ###
   programs.starship = {
@@ -81,7 +90,7 @@
       };
       custom.jj = {
         when = "jj-starship detect";
-        shell = ["jj-starship"];
+        shell = [ "jj-starship" ];
         format = "$output ";
       };
       git_branch.disabled = true;
@@ -102,11 +111,15 @@
       };
       python = {
         symbol = "py ";
-        python_binary = ["./venv/bin/python" "python" "python3" "python2"];
+        python_binary = [
+          "./venv/bin/python"
+          "python"
+          "python3"
+          "python2"
+        ];
       };
     };
   };
-
 
   ### tmux ###
   programs.tmux = {
@@ -144,7 +157,6 @@
       bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
     '';
   };
-
 
   ### jujutsu ###
   programs.jujutsu = {

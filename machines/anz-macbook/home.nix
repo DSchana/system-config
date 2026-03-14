@@ -1,6 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
+  imports = [ ../../shared/home.nix ];
+
   home.homeDirectory = "/Users/dschana";
 
   programs.ssh.extraConfig = lib.mkForce ''
@@ -15,9 +22,9 @@
   '';
 
   programs.zsh.shellAliases = {
-      golint = "golangci-lint run";
-      gotest = "go test -v --trimpath ./";
-    };
+    golint = "golangci-lint run";
+    gotest = "go test -v --trimpath ./";
+  };
 
   programs.zsh.sessionVariables = {
     GOPATH = "$HOME/go";
