@@ -18,23 +18,37 @@
 
   outputs = { self, determinate, nixpkgs, home-manager, jj-starship, ... }@inputs:
   let
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "aarch64-darwin"
+    ];
+    forAllSystems = f: builtins.listToAttrs (
+      map (name: { inherit name; value = f name; }) systems
+    );
+
+    mkNixos = { host, system }: nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        jj-starship = jj-starship.packages.${system}.default;
+      };
+      modules = [
+        determinate.nixosModules.default
+        home-manager.nixosModules.home-manager
+        ./shared/configuration.nix
+        ./machines/${host}/configuration.nix
+      ];
+    };
+
     mkHome = system: modules: home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       modules = [ ./shared/home.nix ] ++ modules;
     };
   in {
     nixosConfigurations = {
-      dschana-laptop = nixpkgs.lib.nixosSystem {
+      dschana-laptop = mkNixos {
+        host = "dschana-laptop";
         system = "x86_64-linux";
-        specialArgs = {
-          jj-starship = jj-starship.packages.x86_64-linux.default;
-        };
-        modules = [
-          determinate.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./shared/configuration.nix
-          ./machines/dschana-laptop/configuration.nix
-        ];
       };
     };
 
