@@ -68,7 +68,10 @@
       mkHome =
         system: modules:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
           modules = [ ./shared/home.nix ] ++ modules;
         };
     in

@@ -32,8 +32,6 @@
     wget
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   ### zsh ###
   programs.zsh = {
     enable = true;
@@ -70,11 +68,16 @@
   };
 
   ### ssh config ###
-  programs.ssh = {
+  programs.ssh = {                                                                                                                                    
     enable = true;
-    extraConfig = ''
-      IdentityAgent ~/.1password/agent.sock
-    '';
+    enableDefaultConfig = false;                                                                                                                      
+    matchBlocks = {                                                                                                                                 
+      "*" = {
+        extraOptions = {
+          "IdentityAgent" = "~/.1password/agent.sock";
+        };
+      };
+    };
   };
 
   ### starship ###

@@ -10,9 +10,8 @@
 
   home.homeDirectory = "/Users/dschana";
 
-  programs.ssh.extraConfig = lib.mkForce ''
-    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-  '';
+  programs.ssh.matchBlocks."*".extraOptions."IdentityAgent" = lib.mkForce
+    "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
 
   programs.tmux.extraConfig = lib.mkAfter ''
     # macOS clipboard
