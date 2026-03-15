@@ -83,6 +83,10 @@
           host = "dschana-laptop";
           system = "x86_64-linux";
         };
+        dschana-desktop = mkNixosConfiguration {
+          host = "dschana-desktop";
+          system = "x86_64-linux"
+        }
       };
 
       darwinConfigurations = {

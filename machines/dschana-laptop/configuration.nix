@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "nixos";
+  networking.hostName = "dshana-laptop";
 
   home-manager.users.dschana = import ./home.nix;
 
