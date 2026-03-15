@@ -11,4 +11,4 @@ After that, subsequent rebuilds:
 ```
 
 ### Home Manager Example
-`nix run home-manager -- switch --flake github:dschana/system-config#dschana-laptop`
+`nix run home-manager -- switch --flake github:dschana/system-config#x86_64-linux`
