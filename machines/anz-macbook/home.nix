@@ -45,29 +45,11 @@
   '';
 
   ### jujutsu ###
-  programs.jujutsu = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Dilpreet";
-        email = "dilpreet@anzenna.ai";
-      };
-      ui = {
-        editor = "nvim";
-      };
-    };
-  };
+  programs.jujutsu.settings.user.email = lib.mkForce "dilpreet@anzenna.ai";
 
   ### vscodium ###
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      vscodevim.vim
-      visualjj.visualjj
-      golang.go
-      ms-python.python
-    ];
-  };
+  profiles.default.extensions = lib.mkAfter (with pkgs.vscode-extensions; [
+    golang.go
+    ms-python.python
+  ]);
 }
