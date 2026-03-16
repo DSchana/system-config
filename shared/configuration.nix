@@ -60,7 +60,6 @@
     signal-desktop
     syncthing
     tailscale
-    vscodium
     wl-clipboard
   ];
 
@@ -77,6 +76,8 @@
   programs.firefox.enable = true;
 
   programs.zsh.enable = true;
+
+  programs.nix-ld.enable = true;
 
   ### services ###
 

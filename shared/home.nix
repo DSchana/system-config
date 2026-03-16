@@ -16,7 +16,6 @@
     go
     gopls
     golangci-lint
-    jujutsu
     neovim
     pgcli
     postgresql
@@ -26,8 +25,6 @@
     rustc
     rustfmt
     rust-analyzer
-    starship
-    tmux
     vim
     wget
   ];
@@ -173,6 +170,17 @@
         editor = "nvim";
       };
     };
+  };
+
+  ### vscodium ###
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      vscodevim.vim
+      visualjj.visualjj
+    ];
   };
 
   programs.home-manager.enable = true;
