@@ -7,7 +7,7 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    btop
+    (btop.override { cudaSupport = true; })
     cargo
     claude-code
     clippy
