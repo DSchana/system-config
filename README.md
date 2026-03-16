@@ -36,8 +36,6 @@ For non-NixOS machines where you just want the shell, tools, and configs:
 nix run home-manager -- switch --flake github:dschana/system-config#<config>
 ```
 
-Machine-specific: `dschana-laptop`
-
 Generic (shared config only): `x86-linux`, `arm-linux`, `x86-darwin`, `arm-darwin`
 
 ## Adding a new NixOS machine
