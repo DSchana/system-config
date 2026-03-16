@@ -51,7 +51,6 @@
       "signal"
       "slack"
       "vlc"
-      "vscodium"
     ];
   };
 
