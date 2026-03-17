@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ../../shared/home.nix ];
+  imports = [ ../../dev-shared/home.nix ];
 
   programs.ssh.matchBlocks = {
     "home-server.dschana.tailscale" = {

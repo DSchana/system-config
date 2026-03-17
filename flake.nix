@@ -50,8 +50,8 @@
           modules = [
             determinate.nixosModules.default
             home-manager.nixosModules.home-manager
-            ./shared/configuration.nix
-            ./machines/${host}/configuration.nix
+            ./dev-shared/configuration.nix
+            ./dev-machines/${host}/configuration.nix
           ];
         };
 
@@ -61,7 +61,22 @@
           inherit system;
           modules = [
             home-manager.darwinModules.home-manager
-            ./machines/${host}/configuration.nix
+            ./dev-machines/${host}/configuration.nix
+          ];
+        };
+
+      mkNonDevNixosConfiguration =
+        { host, system }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            jj-starship = jj-starship.packages.${system}.default;
+          };
+          modules = [
+            determinate.nixosModules.default
+            home-manager.nixosModules.home-manager
+            ./non-dev-shared/configuration.nix
+            ./non-dev-machines/${host}/configuration.nix
           ];
         };
 
@@ -72,19 +87,26 @@
             inherit system;
             config.allowUnfree = true;
           };
-          modules = [ ./shared/home.nix ] ++ modules;
+          modules = [ ./dev-shared/home.nix ] ++ modules;
         };
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
       nixosConfigurations = {
+        ## Dev machines ##
         dschana-laptop = mkNixosConfiguration {
           host = "dschana-laptop";
           system = "x86_64-linux";
         };
         dschana-desktop = mkNixosConfiguration {
           host = "dschana-desktop";
+          system = "x86_64-linux";
+        };
+
+        ## Non-dev machines ##
+        lenovo-laptop = mkNonDevNixosConfiguration {
+          host = "lenovo-laptop";
           system = "x86_64-linux";
         };
       };
