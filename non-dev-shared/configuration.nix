@@ -52,7 +52,6 @@
     brave
     hunspell
     hunspellDicts.en-ca-large
-    jj-starship
     libreoffice
     nix-output-monitor
     obsidian

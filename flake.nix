@@ -69,9 +69,6 @@
         { host, system }:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {
-            jj-starship = jj-starship.packages.${system}.default;
-          };
           modules = [
             determinate.nixosModules.default
             home-manager.nixosModules.home-manager
