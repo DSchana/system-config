@@ -17,7 +17,7 @@
 
   system.defaults = {
     dock = {
-      autohids = true;
+      autohide = true;
       show-recents = false;
     };
     finder = {

@@ -116,7 +116,6 @@
       };
 
       homeConfigurations = {
-        # generic (just shared/home.nix, no machine-specific overrides)
         "x86-linux" = mkHome "x86_64-linux" [ ];
         "arm-linux" = mkHome "aarch64-linux" [ ];
         "x86-darwin" = mkHome "x86_64-darwin" [ ];
