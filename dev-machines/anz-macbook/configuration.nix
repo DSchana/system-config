@@ -11,6 +11,8 @@
     shell = pkgs.zsh;
   };
 
+  nix.enable = false;  # Using determinate nix
+
   programs.zsh.enable = true;
 
   security.pam.services.sudo_local.touchIdAuth = true;
