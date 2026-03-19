@@ -10,6 +10,10 @@
 
   home.homeDirectory = "/Users/dschana";
 
+  home.packages = with pkgs; [
+    nodejs
+  ];
+
   # Disable nix vscode because it causes build issues on darwin
   programs.vscode.enable = lib.mkForce false;
 
