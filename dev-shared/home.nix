@@ -2,7 +2,7 @@
 
 {
   home.username = "dschana";
-  home.homeDirectory = "/home/dschana";
+  home.homeDirectory = lib.mkDefault "/home/dschana";
 
   home.stateVersion = "25.11";
 
