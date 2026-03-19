@@ -48,7 +48,7 @@
   programs.jujutsu.settings.user.email = lib.mkForce "dilpreet@anzenna.ai";
 
   ### vscodium ###
-  profiles.default.extensions = lib.mkAfter (with pkgs.vscode-extensions; [
+  programs.default.extensions = lib.mkAfter (with pkgs.vscode-extensions; [
     golang.go
     ms-python.python
   ]);
