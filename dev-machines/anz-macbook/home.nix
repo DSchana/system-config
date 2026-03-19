@@ -6,7 +6,7 @@
 }:
 
 {
-  imports = [ ../../shared/home.nix ];
+  imports = [ ../../dev-shared/home.nix ];
 
   home.homeDirectory = "/Users/dschana";
 
