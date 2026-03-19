@@ -10,6 +10,9 @@
 
   home.homeDirectory = "/Users/dschana";
 
+  # Disable nix vscode because it causes build issues on darwin
+  programs.vscode.enable = lib.mkForce false;
+
   programs.ssh.matchBlocks."*".extraOptions."IdentityAgent" = lib.mkForce
     "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
 
