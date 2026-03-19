@@ -58,6 +58,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.dschana = import ./home.nix;
+    backupFileExtension = "backup";
   };
 
   system.stateVersion = 5;
