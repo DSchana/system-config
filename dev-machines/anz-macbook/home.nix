@@ -33,6 +33,7 @@
   };
 
   programs.zsh.envExtra = lib.mkAfter ''
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$HOME/go/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
     export PATH="$GOPATH/bin:$PATH"

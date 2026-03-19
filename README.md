@@ -21,7 +21,7 @@ Install [Nix](https://install.determinate.systems/nix) and [Homebrew](https://br
 
 First time bootstrap:
 ```
-nix run nix-darwin -- switch --flake github:dschana/system-config#anz-macbook
+sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake github:dschana/system-config#anz-macbook
 ```
 
 Subsequent rebuilds:
