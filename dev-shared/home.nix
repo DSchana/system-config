@@ -11,8 +11,11 @@
     cargo
     claude-code
     clippy
+    cmake
+    gcc
     gh
     git
+    gnumake
     go
     gopls
     golangci-lint
