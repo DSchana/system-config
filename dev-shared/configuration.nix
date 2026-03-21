@@ -49,8 +49,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    android-tools
     brave
+    grayjay
     hunspell
     hunspellDicts.en-ca-large
     jj-starship
