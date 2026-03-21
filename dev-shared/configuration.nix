@@ -57,6 +57,7 @@
     libreoffice
     nix-output-monitor
     obsidian
+    qbittorrent
     signal-desktop
     syncthing
     tailscale

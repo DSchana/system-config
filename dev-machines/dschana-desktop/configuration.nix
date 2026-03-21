@@ -22,10 +22,29 @@
   home-manager.users.dschana = import ./home.nix;
 
   environment.systemPackages = with pkgs; [
+    aider-chat
     davinci-resolve
     freecad
     kicad
+    opencode
   ];
+
+  ### Locally hosted services ###
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+  };
+
+  services.open-webui.enable = true;
+
+  services.searx = {
+    enable = true;
+    settings = {
+      server.secret_key = "qZu8NVpp6o!4TTnV8kEc-this-is-local-only";
+      search.formats = [ "html" "json" ];
+    };
+  };
 
   system.stateVersion = "25.11";
 }
