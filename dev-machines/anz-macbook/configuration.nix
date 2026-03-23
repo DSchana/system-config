@@ -11,7 +11,7 @@
     shell = pkgs.zsh;
   };
 
-  nix.enable = false;  # Using determinate nix
+  nix.enable = false; # Using determinate nix
 
   programs.zsh.enable = true;
 

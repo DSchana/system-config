@@ -25,6 +25,7 @@
     aider-chat
     davinci-resolve
     freecad
+    krita
     kicad
     opencode
   ];
@@ -42,7 +43,10 @@
     enable = true;
     settings = {
       server.secret_key = "qZu8NVpp6o!4TTnV8kEc-this-is-local-only";
-      search.formats = [ "html" "json" ];
+      search.formats = [
+        "html"
+        "json"
+      ];
     };
   };
 

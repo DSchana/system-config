@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.username = "dschana";
@@ -68,10 +73,10 @@
   };
 
   ### ssh config ###
-  programs.ssh = {                                                                                                                                    
+  programs.ssh = {
     enable = true;
-    enableDefaultConfig = false;                                                                                                                      
-    matchBlocks = {                                                                                                                                 
+    enableDefaultConfig = false;
+    matchBlocks = {
       "*" = {
         extraOptions = {
           "IdentityAgent" = "~/.1password/agent.sock";
