@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [ ../../dev-shared/home.nix ];
@@ -26,5 +26,9 @@
       hostname = "192.168.2.12";
       user = "dschana";
     };
+  };
+
+  programs.zsh.shellAliases = lib.mkAfter {
+    ollama-clear = "ollama ps | grep -v NAME | awk '{print $1}' | xargs -I {} ollama stop {}";
   };
 }
