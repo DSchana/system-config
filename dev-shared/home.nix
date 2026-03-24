@@ -25,6 +25,7 @@
     gopls
     golangci-lint
     neovim
+    nodejs
     pgcli
     postgresql
     protobuf
