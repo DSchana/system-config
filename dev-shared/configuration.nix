@@ -27,6 +27,8 @@
   # Exclude broken packages
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
+    cosmic-settings-daemon
+    cosmic-applets
   ];
 
   # Sound
@@ -44,6 +46,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
@@ -65,6 +68,8 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  virtualisation.docker.enable = true;
 
   ### programs ###
 

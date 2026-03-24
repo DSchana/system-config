@@ -43,7 +43,10 @@
     };
   };
 
-  services.open-webui.enable = true;
+  services.open-webui = {
+    enable = true;
+    port = 9999;
+  };
 
   services.searx = {
     enable = true;
