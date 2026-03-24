@@ -27,8 +27,6 @@
   # Exclude broken packages
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
-    cosmic-settings-daemon
-    cosmic-applets
   ];
 
   # Sound

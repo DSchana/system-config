@@ -5,6 +5,10 @@
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    # TODO: Remove once cosmic-settings-daemon and cosmic-applets build on unstable
+    # https://github.com/pop-os/cosmic-settings-daemon/pull/139
+    nixpkgs-cosmic-pinned.url = "github:NixOS/nixpkgs/cf59864ef8aa2e178cccedbe2c178185b0365705";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -40,6 +44,19 @@
           }) systems
         );
 
+      # TODO: Remove once cosmic-settings-daemon and cosmic-applets build on unstable
+      cosmicPinnedOverlay = system: final: prev:
+        let
+          pinnedPkgs = import inputs.nixpkgs-cosmic-pinned {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        {
+          cosmic-settings-daemon = pinnedPkgs.cosmic-settings-daemon;
+          cosmic-applets = pinnedPkgs.cosmic-applets;
+        };
+
       mkNixosConfiguration =
         { host, system }:
         nixpkgs.lib.nixosSystem {
@@ -48,6 +65,7 @@
             jj-starship = jj-starship.packages.${system}.default;
           };
           modules = [
+            { nixpkgs.overlays = [ (cosmicPinnedOverlay system) ]; }
             determinate.nixosModules.default
             home-manager.nixosModules.home-manager
             ./dev-shared/configuration.nix
