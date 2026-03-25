@@ -25,7 +25,6 @@
     go
     gopls
     golangci-lint
-    neovim
     nodejs
     pgcli
     postgresql
@@ -182,6 +181,16 @@
     };
   };
 
+  ### neovim ###
+  programs.neovim = {
+    enable = true;
+    extraLuaConfig = ''
+      vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 2
+      vim.opt.expandtab = true
+    '';
+  };
+
   ### vscodium ###
   programs.vscode = {
     enable = true;
@@ -191,6 +200,11 @@
       vscodevim.vim
       visualjj.visualjj
     ];
+    userSettings = {
+      "editor.tabSize" = 2;
+      "editor.insertSpaces" = true;
+      "editor.detectIndentation" = false;
+    };
   };
 
   programs.home-manager.enable = true;
