@@ -17,6 +17,7 @@
     claude-code
     clippy
     cmake
+    dmidecode
     gcc
     gh
     git
