@@ -34,6 +34,7 @@
     rustc
     rustfmt
     rust-analyzer
+    uv
     vim
     wget
   ];
