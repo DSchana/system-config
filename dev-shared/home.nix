@@ -6,6 +6,8 @@
 }:
 
 {
+  imports = [ ./neovim.nix ];
+
   home.username = "dschana";
   home.homeDirectory = lib.mkDefault "/home/dschana";
 
@@ -180,16 +182,6 @@
         editor = "nvim";
       };
     };
-  };
-
-  ### neovim ###
-  programs.neovim = {
-    enable = true;
-    extraLuaConfig = ''
-      vim.opt.tabstop = 2
-      vim.opt.shiftwidth = 2
-      vim.opt.expandtab = true
-    '';
   };
 
   ### vscodium ###
