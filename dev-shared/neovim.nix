@@ -37,6 +37,7 @@
         tree-sitter-gitignore
       ]))
       { plugin = rustaceanvim; }
+      lualine-nvim
     ];
     extraLuaConfig = ''
       -- Colorscheme
@@ -57,6 +58,32 @@
       vim.opt.tabstop = 2
       vim.opt.shiftwidth = 2
       vim.opt.expandtab = true
+      vim.opt.clipboard = 'unnamedplus'
+
+      -- Lualine with jj status
+      local function jj_status()
+        local handle = io.popen('jj log -r @ --no-graph -T "separate(\" \", bookmarks, change_id.shortest(8))" 2>/dev/null')
+        if not handle then return "" end
+        local result = handle:read("*a")
+        handle:close()
+        return result:gsub("%s+$", "")
+      end
+
+      require('lualine').setup({
+        options = {
+          theme = 'auto',
+          section_separators = "",
+          component_separators = "",
+        },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { { jj_status } },
+          lualine_c = { 'filename' },
+          lualine_x = { 'diagnostics' },
+          lualine_y = { 'filetype' },
+          lualine_z = { 'location' },
+        },
+      })
 
       -- LSP capabilities
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
