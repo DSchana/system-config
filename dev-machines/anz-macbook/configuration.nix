@@ -44,6 +44,7 @@
       "bartender"
       "brave-browser"
       "docker"
+      "ghostty"
       "karabiner-elements"
       "linear-linear"
       "lunar"
