@@ -50,8 +50,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alacritty
     brave
+    ghostty
     grayjay
     hunspell
     hunspellDicts.en-ca-large
