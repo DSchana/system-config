@@ -59,6 +59,8 @@
       vim.opt.shiftwidth = 2
       vim.opt.expandtab = true
       vim.opt.clipboard = 'unnamedplus'
+      vim.opt.number = true
+      vim.diagnostic.config({ virtual_text = { severity = vim.diagnostic.severity.ERROR } })
 
       -- Lualine with jj status
       local function jj_status()
