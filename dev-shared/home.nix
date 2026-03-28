@@ -14,12 +14,10 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    (btop.override { cudaSupport = true; })
     cargo
     claude-code
     clippy
     cmake
-    dmidecode
     gcc
     gh
     git
@@ -39,6 +37,11 @@
     uv
     vim
     wget
+  ] ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+    (btop.override { cudaSupport = true; })
+    dmidecode
+  ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+    btop
   ];
 
   ### zsh ###
