@@ -29,7 +29,12 @@
     opencode
   ];
 
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   ### Locally hosted services ###
+
+  services.flatpak.enable = true;
 
   services.ollama = {
     enable = true;
