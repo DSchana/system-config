@@ -20,6 +20,7 @@
       claude-code
       clippy
       cmake
+      fastfetch
       gcc
       gh
       git
