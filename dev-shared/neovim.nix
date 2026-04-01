@@ -19,23 +19,25 @@
       smart-splits-nvim
       gitsigns-nvim
       fidget-nvim
-      (nvim-treesitter.withPlugins (p: with p; [
-        tree-sitter-bash
-        tree-sitter-c
-        tree-sitter-cpp
-        tree-sitter-cmake
-        tree-sitter-go
-        tree-sitter-lua
-        tree-sitter-markdown
-        tree-sitter-json
-        tree-sitter-rust
-        tree-sitter-typescript
-        tree-sitter-tsx
-        tree-sitter-html
-        tree-sitter-yaml
-        tree-sitter-gomod
-        tree-sitter-gitignore
-      ]))
+      (nvim-treesitter.withPlugins (
+        p: with p; [
+          tree-sitter-bash
+          tree-sitter-c
+          tree-sitter-cpp
+          tree-sitter-cmake
+          tree-sitter-go
+          tree-sitter-lua
+          tree-sitter-markdown
+          tree-sitter-json
+          tree-sitter-rust
+          tree-sitter-typescript
+          tree-sitter-tsx
+          tree-sitter-html
+          tree-sitter-yaml
+          tree-sitter-gomod
+          tree-sitter-gitignore
+        ]
+      ))
       { plugin = rustaceanvim; }
       lualine-nvim
     ];

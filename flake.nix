@@ -45,7 +45,8 @@
         );
 
       # TODO: Remove once cosmic-settings-daemon and cosmic-applets build on unstable
-      cosmicPinnedOverlay = system: final: prev:
+      cosmicPinnedOverlay =
+        system: final: prev:
         let
           pinnedPkgs = import inputs.nixpkgs-cosmic-pinned {
             inherit system;

@@ -57,7 +57,6 @@
     hunspellDicts.en-ca-large
     jj-starship
     libreoffice
-    nix-output-monitor
     obsidian
     qbittorrent
     signal-desktop

@@ -13,36 +13,42 @@
 
   home.stateVersion = "25.11";
 
-  home.packages = with pkgs; [
-    cargo
-    claude-code
-    clippy
-    cmake
-    gcc
-    gh
-    git
-    gnumake
-    go
-    gopls
-    golangci-lint
-    nodejs
-    pgcli
-    postgresql
-    protobuf
-    protoc-gen-go
-    protoc-gen-go-grpc
-    rustc
-    rustfmt
-    rust-analyzer
-    uv
-    vim
-    wget
-  ] ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-    (btop.override { cudaSupport = true; })
-    dmidecode
-  ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
-    btop
-  ];
+  home.packages =
+    with pkgs;
+    [
+      cargo
+      claude-code
+      clippy
+      cmake
+      gcc
+      gh
+      git
+      gnumake
+      go
+      gopls
+      golangci-lint
+      nix-output-monitor
+      nodejs
+      pgcli
+      postgresql
+      protobuf
+      protoc-gen-go
+      protoc-gen-go-grpc
+      ripgrep
+      rustc
+      rustfmt
+      rust-analyzer
+      uv
+      vim
+      wget
+    ]
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+      (btop.override { cudaSupport = true; })
+      dmidecode
+    ]
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+      btop
+    ];
 
   ### zsh ###
   programs.zsh = {

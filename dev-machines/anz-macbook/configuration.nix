@@ -65,5 +65,17 @@
     backupFileExtension = "backup";
   };
 
+  launchd.user.agents.searxng = {
+    command = "/usr/local/bin/docker run --rm --name searxng -p 8888:8080 -e SEARXNG_SECRET=qZu8NVpp6o!4TTnV8kEc-this-is-local-only searxng/searxng";
+    serviceConfig = {
+      KeepAlive = true;
+      RunAtLoad = true;
+      ThrottleInterval = 30;
+      EnvironmentVariables = {
+        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+      };
+    };
+  };
+
   system.stateVersion = 5;
 }
