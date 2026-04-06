@@ -92,6 +92,17 @@
     openDefaultPorts = true;
   };
 
+  services.searx = {
+    enable = true;
+    settings = {
+      server.secret_key = "qZu8NVpp6o!4TTnV8kEc-this-is-local-only";
+      search.formats = [
+        "html"
+        "json"
+      ];
+    };
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
