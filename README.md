@@ -26,7 +26,7 @@ sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- sw
 
 Subsequent rebuilds:
 ```
-darwin-rebuild switch --flake github:dschana/system-config#anz-macbook
+darwin-rebuild switch --flake github:dschana/system-config#anz-macbook --refresh
 ```
 
 ## Home Manager (standalone, any OS)
