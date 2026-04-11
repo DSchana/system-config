@@ -78,6 +78,9 @@
         { host, system }:
         nix-darwin.lib.darwinSystem {
           inherit system;
+          specialArgs = {
+            jj-starship = jj-starship.packages.${system}.default;
+          };
           modules = [
             home-manager.darwinModules.home-manager
             ./dev-machines/${host}/configuration.nix

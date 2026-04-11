@@ -32,6 +32,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    jj-starship
+  ];
+
   homebrew = {
     enable = true;
     onActivation = {
