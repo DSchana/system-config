@@ -51,7 +51,6 @@
 
   environment.systemPackages = with pkgs; [
     brave
-    ghostty
     grayjay
     hunspell
     hunspellDicts.en-ca-large
