@@ -27,6 +27,7 @@
     krita
     kicad
     opencode
+    vulkan-tools
   ];
 
   programs.appimage.enable = true;

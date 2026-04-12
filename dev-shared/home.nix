@@ -92,6 +92,8 @@
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     settings = {
       window-decoration = "none";
+      cursor-style = "block";
+      cursor-style-blink = "false";
     };
   };
 
