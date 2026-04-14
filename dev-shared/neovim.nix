@@ -8,6 +8,7 @@
       nvim-tree-lua
       nvim-web-devicons
       nvim-lspconfig
+      nvim-vtsls
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
@@ -110,10 +111,11 @@
       vim.lsp.enable('lua_ls')
 
       -- TypeScript/JavaScript language server
-      vim.lsp.config('ts_ls', {
-        capabilities = capabilities
+      vim.lsp.config('vtsls', {
+        capabilities = capabilities,
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' }
       })
-      vim.lsp.enable('ts_ls')
+      vim.lsp.enable('vtsls')
 
       -- C/C++ language server
       vim.lsp.config('clangd', {
