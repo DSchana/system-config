@@ -94,7 +94,7 @@
       window-decoration = "none";
       cursor-style = "block";
       cursor-style-blink = "false";
-      mouse-scroll-multiplier = 0.3;
+      mouse-scroll-multiplier = precision:3,discrete:0.3;
     };
   };
 

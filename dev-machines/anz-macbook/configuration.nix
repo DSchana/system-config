@@ -43,12 +43,14 @@
       autoUpdate = true;
       upgrade = true;
     };
+    brews = [
+      "opencode"
+    ];
     casks = [
       "1password"
       "bartender"
       "brave-browser"
       "docker"
-      "ghostty"
       "karabiner-elements"
       "linear-linear"
       "lunar"
