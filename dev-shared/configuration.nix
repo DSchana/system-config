@@ -59,6 +59,7 @@
     obsidian
     qbittorrent
     signal-desktop
+    super-productivity
     syncthing
     tailscale
     wl-clipboard
