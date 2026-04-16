@@ -40,6 +40,15 @@
     ];
   };
 
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/82e9e837-6657-4f3b-a93f-ab23aa7d687c";
+    fsType = "btrfs";
+    options = [
+        "compress=zstd:3"
+        "noatime"
+    ];
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/12adbf25-57dc-4572-99ff-41705534156a"; }
   ];
