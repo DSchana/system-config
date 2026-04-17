@@ -27,7 +27,6 @@
     krita
     kicad
     lmstudio
-    opencode
     vulkan-tools
   ];
 

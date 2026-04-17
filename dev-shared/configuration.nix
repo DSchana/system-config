@@ -57,6 +57,7 @@
     jj-starship
     libreoffice
     obsidian
+    opencode
     qbittorrent
     signal-desktop
     super-productivity
