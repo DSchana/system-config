@@ -51,12 +51,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    brave
     grayjay
     hunspell
     hunspellDicts.en-ca-large
     jj-starship
     libreoffice
+    librewolf
     obsidian
     opencode
     qbittorrent

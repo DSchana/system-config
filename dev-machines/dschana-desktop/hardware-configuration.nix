@@ -25,6 +25,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/37cecbf2-ff83-4a4a-9eff-7f7285c303dd";
