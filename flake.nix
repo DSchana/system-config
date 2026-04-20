@@ -17,6 +17,9 @@
 
     jj-starship.url = "github:dmmulroy/jj-starship";
     jj-starship.inputs.nixpkgs.follows = "nixpkgs";
+
+    #opencode.url = "github:anomalyco/opencode";
+    #opencode.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -27,6 +30,7 @@
       home-manager,
       nix-darwin,
       jj-starship,
+      #opencode,
       ...
     }@inputs:
     let
@@ -64,6 +68,7 @@
           inherit system;
           specialArgs = {
             jj-starship = jj-starship.packages.${system}.default;
+            #opencode = opencode.packages.${system}.default;
           };
           modules = [
             { nixpkgs.overlays = [ (cosmicPinnedOverlay system) ]; }
