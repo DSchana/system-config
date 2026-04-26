@@ -56,7 +56,6 @@
     hunspellDicts.en-ca-large
     jj-starship
     libreoffice
-    librewolf
     obsidian
     opencode
     qbittorrent
@@ -64,6 +63,7 @@
     super-productivity
     syncthing
     tailscale
+    tor-browser
     wl-clipboard
   ];
 

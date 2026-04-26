@@ -28,6 +28,7 @@
       go
       gopls
       golangci-lint
+      mullvad
       nix-output-monitor
       nodejs
       pgcli

@@ -22,6 +22,7 @@
   home-manager.users.dschana = import ./home.nix;
 
   environment.systemPackages = with pkgs; [
+    brave
     davinci-resolve
     freecad
     krita
