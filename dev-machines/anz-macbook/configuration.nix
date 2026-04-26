@@ -49,7 +49,6 @@
     casks = [
       "1password"
       "bartender"
-      "brave-browser"
       "docker"
       "karabiner-elements"
       "linear-linear"

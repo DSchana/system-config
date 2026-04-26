@@ -207,6 +207,39 @@
     };
   };
 
+  ### librewolf ###
+  programs.librewolf = {
+    enable = true;
+    profiles.default = {
+      isDefault = true;
+      settings = {
+        # Dark mode — browser chrome and propagated to websites via prefers-color-scheme
+        "ui.systemUsesDarkTheme" = 1;
+        "layout.css.prefers-color-scheme.content-override" = 0;
+        "browser.theme.toolbar-theme" = 0;
+        "browser.theme.content-theme" = 0;
+
+        # Granular fingerprint protection instead of blanket RFP,
+        # because RFP forces prefers-color-scheme to light for all sites.
+        "privacy.resistFingerprinting" = false;
+        "privacy.fingerprintingProtection" = true;
+        "privacy.fingerprintingProtection.overrides" = "-CSSPrefersColorScheme";
+
+        # Privacy hardening
+        "privacy.trackingprotection.enabled" = true;
+        "privacy.trackingprotection.socialtracking.enabled" = true;
+        "network.cookie.cookieBehavior" = 5;
+        "dom.security.https_only_mode" = true;
+        "dom.security.https_only_mode_ever_enabled" = true;
+        "webgl.disabled" = true;
+        "media.peerconnection.enabled" = false;
+        "geo.enabled" = false;
+        "network.http.referer.XOriginPolicy" = 2;
+        "network.http.referer.XOriginTrimmingPolicy" = 2;
+      };
+    };
+  };
+
   ### vscodium ###
   programs.vscode = {
     enable = true;
