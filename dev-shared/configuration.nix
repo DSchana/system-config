@@ -62,8 +62,8 @@
         isNormalUser = true;
         extraGroups = [
             "networkmanager"
-                "wheel"
-                "docker"
+            "wheel"
+            "docker"
         ];
         shell = pkgs.zsh;
     };
@@ -95,6 +95,12 @@
     programs._1password-gui = {
         enable = true;
         polkitPolicyOwners = [ "dschana" ];
+    };
+
+    programs.gamemode.enable = true;
+    programs.steam = {
+        enable = true;
+        gamescopeSession.enable = true;
     };
 
     programs.firefox.enable = true;
